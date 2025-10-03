@@ -1,12 +1,13 @@
+require('dotenv').config()
 const { Sequelize } = require('sequelize')
 
 const db = new Sequelize(
-  'rodolfoDB',        
-  'avnadmin',                
-  'AVNS_oxTlKFIZdp8xu6X2f3r',
+  process.env.DB_NAME,
+  process.env.DB_USER,
+  process.env.DB_PASS,
   {
-    host: 'pgriloagente-langchaintest.j.aivencloud.com',
-    port: 16424,
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
     dialect: 'postgres',
     dialectOptions: {
       ssl: {
